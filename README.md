@@ -14,3 +14,24 @@ mkdir -p named/var/run
 touch docker-compose.yml
 touch README.md
 ```
+
+## Contenido del Fichero `docker-compose.yml`
+
+A continuación, edita el archivo `docker-compose.yml` con el siguiente contenido:
+
+```
+version: '3.8'
+services:
+  bind9:
+    image: internetsystemsconsortium/bind9:9.18
+    container_name: bind9
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./named.conf.options:/etc/bind/named.conf.options
+      - ./zones:/etc/bind/zones
+      - ./logs:/var/log/bind
+    restart: unless-stopped
+```
+
