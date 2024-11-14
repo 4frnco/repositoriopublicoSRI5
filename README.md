@@ -34,4 +34,24 @@ services:
       - ./logs:/var/log/bind
     restart: unless-stopped
 ```
+## Levantar el Contenedor con Docker Compose
 
+Para iniciar el contenedor con el servicio DNS BIND9, ejecuta el siguiente comando:
+
+```
+docker-compose up -d
+```
+
+Esto levantará el contenedor en segundo plano.
+
+## Subir todo a GitHub
+
+Para subir la configuración al repositorio en GitHub, sigue estos pasos:
+
+```
+git init
+git add docker-compose.yml
+git commit -m "Configuración inicial de BIND9 con Docker"
+git remote add origin https://github.com/franco/bind9-docker-setup.git
+git push -u origin master
+```
